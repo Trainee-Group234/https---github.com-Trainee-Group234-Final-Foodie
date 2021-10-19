@@ -1,0 +1,451 @@
+[
+    {
+        "id": "66330",
+        "name": "Breakfast",
+        "cuisines": "Breakfasting, Street Food, Indori",
+        "rating": "4.4",
+        "reviews": "865",
+        "feature_image": "https://b.zmtcdn.com/data/pictures/8/18387708/05ccffe6286d86a43e664cff382b1cda.jpg?output-format=webp",
+        "thumbnail_image": "https://b.zmtcdn.com/data/pictures/8/18387708/05ccffe6286d86a43e664cff382b1cda.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+
+        "menu": [
+            {
+                "id": 1,
+                "name": "Poha-Jalebi",
+                "desc": "An Authentic Indori Poha where succulent Poha piece is steam with a spices, layered with the finest Basmati Rice and Dum Cooked with generous portions of Saffron and Ghee.",
+                "price": 100
+            },
+            {
+                "id": 2,
+                "name": "Rava Idli",
+                "desc": "Enjoy the special taste of exclusive spice marinated tender and juicy Lamb pieces, enough to share between two persons that are Dum cooked along with the finest of Rice",
+                "price": 280
+            },
+            {
+                "id": 3,
+                "name": "Bread Upma",
+                "desc": "A flavorful medley of finest Basmati Rice, and aromatic spices. Ideally for one person but can be shared between two. ",
+                "price": 230
+            },
+            {
+                "id": 4,
+                "name": "Masala Dosa",
+                "desc": "The authentic Veg delicacy seasoned with herbs and spices and then layered into fine grain Rice and cooked to perfection.",
+                "price": 190
+            },
+            {
+                "id": 5,
+                "name": "Sabudana Khichdi",
+                "desc": "An assorted variety of Moroccan Chicken Kebab, Chicken Pepper Marinate, Chicken Reshmi Kebab & Chicken Garlic Kebab served with Pudina chutney. Comes in a tamper-proof sealed pack, easy to carry. (8 pcs)",
+                "price": 240
+            },
+            {
+                "id": 6,
+                "name": "Medu vada",
+                "desc": "The King of all kebabs, spiced full Chicken with bone, finished in a Tandoor. (2 pcs)",
+                "price": 370
+            },
+            {
+                "id": 7,
+                "name": "Aaloo Paratha",
+                "desc": "A sweet treat from Hyderabad, this heavenly dessert comprises of dried apricots and sugar, enriched with saffron strands and rose water.",
+                "price": 150
+            }
+        ]
+    },
+
+
+
+    {
+        "id": "71679",
+        "name": "Lunch (South)",
+        "cuisines": "South-Indian",
+        "rating": "4.1",
+        "reviews": "505",
+        "feature_image": "https://b.zmtcdn.com/data/reviews_photos/081/6ed1609b97a184fcf604c126e724a081_1476178734.jpg?output-format=webp",
+        "thumbnail_image": "https://b.zmtcdn.com/data/reviews_photos/081/6ed1609b97a184fcf604c126e724a081_1476178734.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "menu": [
+            {
+                "id": 1,
+                "name": "Tamarind Rice",
+                "desc": "A tangy rice dish made with channa and urad dal, infused with the flavour of tamarind pulp, layered with the finest Basmati Rice and Dum Cooked with generous portions of Saffron and Ghee.",
+                "price": 210
+            },
+            {
+                "id": 2,
+                "name": "Arachu Vitta Sambar",
+                "desc": "Enjoy the special taste of exclusive spice marinated tender and juicy Lamb pieces, enough to share between two persons that are Dum cooked along with the finest of Basmati Rice",
+                "price": 280
+            },
+            {
+                "id": 3,
+                "name": "Malabar Fish Biryani",
+                "desc": "A flavorful medley of finest Basmati Rice, boiled Eggs, and aromatic spices. Ideally for one person but can be shared between two. ",
+                "price": 230
+            },
+            {
+                "id": 4,
+                "name": "Avial with Kerala Red Rice",
+                "desc": "The authentic Veg delicacy seasoned with herbs and spices and then layered into fine grain Basmati Rice and cooked to perfection.",
+                "price": 190
+            },
+            {
+                "id": 5,
+                "name": "Bendekaayi Gojju",
+                "desc": "An assorted variety of Moroccan Chicken Kebab, Chicken Pepper Marinate, Chicken Reshmi Kebab & Chicken Garlic Kebab served with Pudina chutney. Comes in a tamper-proof sealed pack, easy to carry. (8 pcs)",
+                "price": 240
+            },
+            {
+                "id": 6,
+                "name": "Mango Kuzhambu",
+                "desc": "The King of all kebabs, spiced full Chicken with bone, finished in a Tandoor. (2 pcs)",
+                "price": 370
+            },
+            {
+                "id": 7,
+                "name": "Puliyogare",
+                "desc": "A sweet treat from Hyderabad, this heavenly dessert comprises of dried apricots and sugar, enriched with saffron strands and rose water.",
+                "price": 150
+            }
+        ]
+    },
+
+
+
+
+
+
+    {
+        "id": "66334",
+        "name": "Lunch (North)",
+        "cuisines": "North Indian, Middle Indian, Fast Food",
+        "rating": "4.2",
+        "reviews": "380",
+        "feature_image": "https://b.zmtcdn.com/data/pictures/chains/4/66334/b8da914ca74b6b829c9dac0da239f6fb.jpg",
+        "thumbnail_image": "https://b.zmtcdn.com/data/pictures/chains/4/66334/b8da914ca74b6b829c9dac0da239f6fb.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "menu": [
+            {
+                "id": 1,
+                "name": "Dal Makhani",
+                "desc": "This Dal Makhani recipe is a restaurant style version with subtle smoky flavors and creaminess of the lentils. If you love authentic Punjabi food then you are going to love this Dal Makhani even more.",
+                "price": 210
+            },
+            {
+                "id": 2,
+                "name": "Paneer butter Masala",
+                "desc": "Paneer Butter Masala is one of India’s most popular paneer gravy recipe. This recipe with Indian cottage cheese cubes in a creamy tomato sauce is one that I have been making for a long time. With my video and step-by-step guide you can easily make this restaurant style paneer butter masala at home",
+                "price": 280
+            },
+            {
+                "id": 3,
+                "name": "Palak Paneer",
+                "desc": "Palak Paneer is one of the most popular Indian dish made with succulent paneer cubes (Indian cottage cheese) in a smooth spinach sauce. This vibrant green palak paneer is made with fresh spinach leaves (palak in Hindi), onions, tomatoes, herbs and spices. Make this super delicious palak paneer with my easy step by step photo guide and video.",
+                "price": 230
+            },
+            {
+                "id": 4,
+                "name": "Supreme Veg Biryani",
+                "desc": "The authentic Veg delicacy seasoned with herbs and spices and then layered into fine grain Basmati Rice and cooked to perfection.",
+                "price": 190
+            },
+            {
+                "id": 5,
+                "name": "Dal Tadka",
+                "desc": "Dal Tadka is a popular Indian lentil dish made with arhar dal (husked & split pigeon pea lentils) or masoor dal (husked & split red lentils). This Dal Tadka recipe gives you a delicious creamy dal with smoked flavors",
+                "price": 240
+            },
+            {
+                "id": 6,
+                "name": "Kadai Paneer",
+                "desc": "Kadai Paneer is a vibrant, tangy, spiced paneer dish that can brighten up your day any time. Made with the usual Indian pantry staples like onions, tomatoes, capsicum (green bell peppers) and Indian spices, this bright dish comes together in 30 minutes",
+                "price": 370
+            }
+        ]
+    },
+    
+    
+    
+    
+    
+    
+    
+    {
+        "id": "66312",
+        "name": "Starter",
+        "cuisines": "Indian Food Starter",
+        "rating": "3",
+        "reviews": "240",
+        "feature_image": "https://b.zmtcdn.com/data/reviews_photos/b74/0edfc927dc03d31a965d78dd2217eb74_1472533017.jpg?output-format=webp",
+        "thumbnail_image": "https://raw.githubusercontent.com/KushagraYash/image/main/starter.jpg",
+        "menu": [
+            {
+                "id": 1,
+                "name": "Indian Onion Salad",
+                "desc": "An Authentic Hyderabadi Biryani where succulent Chicken piece is marinated with a blend of spices, layered with the finest Basmati Rice and Dum Cooked with generous portions of Saffron and Ghee.",
+                "price": 210
+            },
+            {
+                "id": 2,
+                "name": "Dahi Vada",
+                "desc": "Enjoy the special taste of exclusive spice marinated tender and juicy Lamb pieces, enough to share between two persons that are Dum cooked along with the finest of Basmati Rice",
+                "price": 280
+            },
+            {
+                "id": 3,
+                "name": "Paneer Tikka",
+                "desc": "A flavorful medley of finest Basmati Rice, boiled Eggs, and aromatic spices. Ideally for one person but can be shared between two. ",
+                "price": 230
+            },
+            {
+                "id": 4,
+                "name": "Sweet Potato Tikki",
+                "desc": "The authentic Veg delicacy seasoned with herbs and spices and then layered into fine grain Basmati Rice and cooked to perfection.",
+                "price": 190
+            },
+            {
+                "id": 5,
+                "name": "Sabudana Tikki",
+                "desc": "An assorted variety of Moroccan Chicken Kebab, Chicken Pepper Marinate, Chicken Reshmi Kebab & Chicken Garlic Kebab served with Pudina chutney. Comes in a tamper-proof sealed pack, easy to carry. (8 pcs)",
+                "price": 240
+            },
+            {
+                "id": 6,
+                "name": "Dal Vada Recipe",
+                "desc": "The King of all kebabs, spiced full Chicken with bone, finished in a Tandoor. (2 pcs)",
+                "price": 370
+            }
+        ]
+    },
+    
+    
+    
+    
+    
+{
+        "id": "66342",
+        "name": "Dinner",
+        "cuisines": "Rajasthani, Street Food",
+        "rating": "4.2",
+        "reviews": "385",
+        "feature_image": "https://b.zmtcdn.com/data/reviews_photos/9ef/797cc9fadff12009200fb00da83d59ef_1431844211.jpg?output-format=webp",
+        "thumbnail_image": "https://b.zmtcdn.com/data/reviews_photos/9ef/797cc9fadff12009200fb00da83d59ef_1431844211.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "menu": [
+            {
+                "id": 1,
+                "name": "Royal Chicken Biryani",
+                "desc": "An Authentic Hyderabadi Biryani where succulent Chicken piece is marinated with a blend of spices, layered with the finest Basmati Rice and Dum Cooked with generous portions of Saffron and Ghee.",
+                "price": 210
+            },
+            {
+                "id": 2,
+                "name": "Special Mutton Biryani",
+                "desc": "Enjoy the special taste of exclusive spice marinated tender and juicy Lamb pieces, enough to share between two persons that are Dum cooked along with the finest of Basmati Rice",
+                "price": 280
+            },
+            {
+                "id": 3,
+                "name": "Egg Biryani",
+                "desc": "A flavorful medley of finest Basmati Rice, boiled Eggs, and aromatic spices. Ideally for one person but can be shared between two. ",
+                "price": 230
+            },
+            {
+                "id": 4,
+                "name": "Supreme Veg Biryani",
+                "desc": "The authentic Veg delicacy seasoned with herbs and spices and then layered into fine grain Basmati Rice and cooked to perfection.",
+                "price": 190
+            },
+            {
+                "id": 5,
+                "name": "Chicken Kebab Platter",
+                "desc": "An assorted variety of Moroccan Chicken Kebab, Chicken Pepper Marinate, Chicken Reshmi Kebab & Chicken Garlic Kebab served with Pudina chutney. Comes in a tamper-proof sealed pack, easy to carry. (8 pcs)",
+                "price": 240
+            },
+            {
+                "id": 6,
+                "name": "Tandoori Chicken (Half)",
+                "desc": "The King of all kebabs, spiced full Chicken with bone, finished in a Tandoor. (2 pcs)",
+                "price": 370
+            },
+            {
+                "id": 7,
+                "name": "Qubani Ka Meetha",
+                "desc": "A sweet treat from Hyderabad, this heavenly dessert comprises of dried apricots and sugar, enriched with saffron strands and rose water.",
+                "price": 150
+            }
+        ]
+    },
+
+
+
+
+    {
+        "id": "65505",
+        "name": "Special MainCourse",
+        "cuisines": "Primary dish of food served for lunch or dinner",
+        "rating": "3.7",
+        "reviews": "218",
+        "feature_image": "https://b.zmtcdn.com/data/pictures/9/65499/5be9619932b600d72a7f57121e1cd51f.jpg?output-format=webp",
+        "thumbnail_image": "https://b.zmtcdn.com/data/pictures/9/65499/5be9619932b600d72a7f57121e1cd51f.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "menu": [
+            {
+                "id": 1,
+                "name": "Royal Chicken Biryani",
+                "desc": "An Authentic Hyderabadi Biryani where succulent Chicken piece is marinated with a blend of spices, layered with the finest Basmati Rice and Dum Cooked with generous portions of Saffron and Ghee.",
+                "price": 210
+            },
+            {
+                "id": 2,
+                "name": "Special Mutton Biryani",
+                "desc": "Enjoy the special taste of exclusive spice marinated tender and juicy Lamb pieces, enough to share between two persons that are Dum cooked along with the finest of Basmati Rice",
+                "price": 280
+            },
+            {
+                "id": 3,
+                "name": "Egg Biryani",
+                "desc": "A flavorful medley of finest Basmati Rice, boiled Eggs, and aromatic spices. Ideally for one person but can be shared between two. ",
+                "price": 230
+            },
+            {
+                "id": 4,
+                "name": "Supreme Veg Biryani",
+                "desc": "The authentic Veg delicacy seasoned with herbs and spices and then layered into fine grain Basmati Rice and cooked to perfection.",
+                "price": 190
+            },
+            {
+                "id": 5,
+                "name": "Chicken Kebab Platter",
+                "desc": "An assorted variety of Moroccan Chicken Kebab, Chicken Pepper Marinate, Chicken Reshmi Kebab & Chicken Garlic Kebab served with Pudina chutney. Comes in a tamper-proof sealed pack, easy to carry. (8 pcs)",
+                "price": 240
+            },
+            {
+                "id": 6,
+                "name": "Tandoori Chicken (Half)",
+                "desc": "The King of all kebabs, spiced full Chicken with bone, finished in a Tandoor. (2 pcs)",
+                "price": 370
+            },
+            {
+                "id": 7,
+                "name": "Qubani Ka Meetha",
+                "desc": "A sweet treat from Hyderabad, this heavenly dessert comprises of dried apricots and sugar, enriched with saffron strands and rose water.",
+                "price": 150
+            }
+        ]
+    },
+
+
+
+
+    {
+        "id": "67366",
+        "name": "Fast-Food",
+        "cuisines": "Pizza, Burger, Noodles, Momos",
+        "rating": "4.0",
+        "reviews": "227",
+        "feature_image": "https://b.zmtcdn.com/data/pictures/6/67366/904518846015e2a25b0e594d0fcb7069.jpg",
+        "thumbnail_image": "https://b.zmtcdn.com/data/pictures/6/67366/904518846015e2a25b0e594d0fcb7069.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        "menu": [
+            {
+                "id": 1,
+                "name": "Royal Chicken Biryani",
+                "desc": "An Authentic Hyderabadi Biryani where succulent Chicken piece is marinated with a blend of spices, layered with the finest Basmati Rice and Dum Cooked with generous portions of Saffron and Ghee.",
+                "price": 210
+            },
+            {
+                "id": 2,
+                "name": "Special Mutton Biryani",
+                "desc": "Enjoy the special taste of exclusive spice marinated tender and juicy Lamb pieces, enough to share between two persons that are Dum cooked along with the finest of Basmati Rice",
+                "price": 280
+            },
+            {
+                "id": 3,
+                "name": "Egg Biryani",
+                "desc": "A flavorful medley of finest Basmati Rice, boiled Eggs, and aromatic spices. Ideally for one person but can be shared between two. ",
+                "price": 230
+            },
+            {
+                "id": 4,
+                "name": "Supreme Veg Biryani",
+                "desc": "The authentic Veg delicacy seasoned with herbs and spices and then layered into fine grain Basmati Rice and cooked to perfection.",
+                "price": 190
+            },
+            {
+                "id": 5,
+                "name": "Chicken Kebab Platter",
+                "desc": "An assorted variety of Moroccan Chicken Kebab, Chicken Pepper Marinate, Chicken Reshmi Kebab & Chicken Garlic Kebab served with Pudina chutney. Comes in a tamper-proof sealed pack, easy to carry. (8 pcs)",
+                "price": 240
+            },
+            {
+                "id": 6,
+                "name": "Tandoori Chicken (Half)",
+                "desc": "The King of all kebabs, spiced full Chicken with bone, finished in a Tandoor. (2 pcs)",
+                "price": 370
+            },
+            {
+                "id": 7,
+                "name": "Qubani Ka Meetha",
+                "desc": "A sweet treat from Hyderabad, this heavenly dessert comprises of dried apricots and sugar, enriched with saffron strands and rose water.",
+                "price": 150
+            }
+        ]
+    },
+
+
+
+    {
+        "id": "18947325",
+        "name": "Beverage",
+        "cuisines": "BBQ, North Indian, European",
+        "rating": "4.8",
+        "reviews": "728",
+        "feature_image": "https://b.zmtcdn.com/data/pictures/chains/6/70856/d1fabc4669318bc940749ff735359327.jpg?output-format=webp",
+        "thumbnail_image": "https://raw.githubusercontent.com/KushagraYash/image/main/beverage.jpg",
+        "menu": [
+            {
+                "id": 1,
+                "name": "Royal Chicken Biryani",
+                "desc": "An Authentic Hyderabadi Biryani where succulent Chicken piece is marinated with a blend of spices, layered with the finest Basmati Rice and Dum Cooked with generous portions of Saffron and Ghee.",
+                "price": 210
+            },
+            {
+                "id": 2,
+                "name": "Special Mutton Biryani",
+                "desc": "Enjoy the special taste of exclusive spice marinated tender and juicy Lamb pieces, enough to share between two persons that are Dum cooked along with the finest of Basmati Rice",
+                "price": 280
+            },
+            {
+                "id": 3,
+                "name": "Egg Biryani",
+                "desc": "A flavorful medley of finest Basmati Rice, boiled Eggs, and aromatic spices. Ideally for one person but can be shared between two. ",
+                "price": 230
+            },
+            {
+                "id": 4,
+                "name": "Supreme Veg Biryani",
+                "desc": "The authentic Veg delicacy seasoned with herbs and spices and then layered into fine grain Basmati Rice and cooked to perfection.",
+                "price": 190
+            },
+            {
+                "id": 5,
+                "name": "Chicken Kebab Platter",
+                "desc": "An assorted variety of Moroccan Chicken Kebab, Chicken Pepper Marinate, Chicken Reshmi Kebab & Chicken Garlic Kebab served with Pudina chutney. Comes in a tamper-proof sealed pack, easy to carry. (8 pcs)",
+                "price": 240
+            },
+            {
+                "id": 6,
+                "name": "Tandoori Chicken (Half)",
+                "desc": "The King of all kebabs, spiced full Chicken with bone, finished in a Tandoor. (2 pcs)",
+                "price": 370
+            },
+            {
+                "id": 7,
+                "name": "Qubani Ka Meetha",
+                "desc": "A sweet treat from Hyderabad, this heavenly dessert comprises of dried apricots and sugar, enriched with saffron strands and rose water.",
+                "price": 150
+            }
+        ]
+    
+    }
+
+
+
+]
