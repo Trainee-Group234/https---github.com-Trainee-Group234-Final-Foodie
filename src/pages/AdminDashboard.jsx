@@ -5,7 +5,7 @@ import "../App.css";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { adminLogout } from "../actions/AdminAction";
-import { getCustomers, getCategory } from "../actions/AdminAction";
+import { getCustomers, getCategory, getAllItem } from "../actions/AdminAction";
 
 class AdminDashboard extends Component {
   componentDidMount() {
@@ -20,6 +20,10 @@ class AdminDashboard extends Component {
 
   handleCategory = () => {
     this.props.getCategory();
+  }
+
+  handleItem = () => {
+    this.props.getAllItem()
   }
 
   // componentWillReceiveProps(nextProps){
@@ -109,7 +113,7 @@ class AdminDashboard extends Component {
                       <p>Add Item</p>
                     </Link>
 
-                    <Link to="/removeitem">
+                    <Link to="/removeitem" onClick={this.handleItem}>
                       <p>Remove Item</p>
                     </Link>
                   </div>
@@ -396,12 +400,13 @@ AdminDashboard.propTypes = {
   adminLogout: PropTypes.func.isRequired,
   getCategory: PropTypes.func.isRequired,
   getCustomers: PropTypes.func.isRequired,
-  admin: PropTypes.object.isRequired,
+  getAllItem: PropTypes.func.isRequired,
+  admin: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
   admin: state.admin.admin,
 });
-export default connect(mapStateToProps, { adminLogout, getCustomers, getCategory })(
+export default connect(mapStateToProps, { adminLogout, getCustomers, getCategory, getAllItem })(
   AdminDashboard
 );

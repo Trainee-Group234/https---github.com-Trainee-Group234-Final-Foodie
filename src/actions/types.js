@@ -8,3 +8,7 @@ export const GET_ITEM_LIST = "GET_ITEM_LIST";
 export const GET_CATEGORY_LIST  = "GET_CATEGORY_LIST";
 export const GET_ITEMS = "GET_ITEMS";
 export const REMOVE_CATEGORY = "REMOVE_CATEGORY"; 
+export const ADD_CATEGORY = "ADD_CATEGORY"; 
+export const ADD_ITEM = "ADD_ITEM"; 
+export const GET_ALL_ITEM = "GET_ALL_ITEM"; 
+export const REMOVE_ITEM = "REMOVE_ITEM";

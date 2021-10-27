@@ -1,10 +1,38 @@
 import { Fastfood } from "@material-ui/icons";
 import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./addcategory.css";
+import { addCategory } from "../../actions/AdminAction";
+import PropTypes from "prop-types";
 
-export default class AddCategory extends Component {
+class AddCategory extends Component {
+
+state = {
+  cuisines: "",
+  name: "",
+  rating: 0,
+  reviews: 0,
+  thumbnailimage:""
+}
+
+handleSubmit = (event) => {
+  event.preventDefault()
+  const newCategory = {
+    cuisines: this.state.cuisines,
+    name: this.state.name,
+    rating: this.state.rating,
+    reviews: this.state.reviews,
+    thumbnailimage:this.state.thumbnailimage
+  }
+
+  this.props.addCategory(newCategory, this.props.history)
+}
+
+handleChange = (event) => {
+  this.setState({[event.target.name]: event.target.value})
+}
 
   render() {
     return (
@@ -222,29 +250,29 @@ export default class AddCategory extends Component {
     
     <p className="h3 text-primary"><Fastfood/> Add Your Category of Food </p>
     <hr />
-<Form id="addcategory">
+<Form id="addcategory" onSubmit={this.handleSubmit}>
   <Form.Group className="">
     <Form.Label>Name</Form.Label>
-    <Form.Control type="text" placeholder="Enter category Name" />
+    <Form.Control type="text" name="name" placeholder="Enter category Name" value={this.state.name} onChange={this.handleChange} />
   </Form.Group>
   
   <Form.Group className="">
     <Form.Label>Cuisines</Form.Label>
-    <Form.Control type="text" placeholder="Enter Cuisiness" />
+    <Form.Control type="text" name="cuisines" placeholder="Enter Cuisiness" value={this.state.cuisines} onChange={this.handleChange}/>
   </Form.Group>  
   
   <Form.Group className="">
     <Form.Label>Ratings</Form.Label>
-    <Form.Control type="number" placeholder="Ratings"/>
+    <Form.Control type="number" name="rating" placeholder="Ratings" value={this.state.rating} onChange={this.handleChange}/>
   </Form.Group>
 
   <Form.Group className="" >
     <Form.Label>Reviews</Form.Label>
-    <Form.Control type="number" placeholder="Reviews" />
+    <Form.Control type="number" name="reviews" placeholder="Reviews" value={this.state.reviews} onChange={this.handleChange}/>
   </Form.Group>
   <Form.Group className="" >
     <Form.Label>Image</Form.Label>
-    <Form.Control type="link" placeholder="Enter Drive Link" />
+    <Form.Control type="link" name="thumbnailimage" placeholder="Enter Drive Link" value={this.state.thumbnailimage} onChange={this.handleChange}/>
   </Form.Group>
 <br />
 
@@ -265,3 +293,15 @@ export default class AddCategory extends Component {
     );
   }
 }
+
+AddCategory.propTypes = {
+  
+  addCategory: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps  = state => ({
+  errors: state.errors
+})
+
+export default connect(mapStateToProps,{addCategory})(AddCategory);

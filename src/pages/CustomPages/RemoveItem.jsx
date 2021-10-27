@@ -1,9 +1,13 @@
 import { Delete, Fastfood} from '@material-ui/icons'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { getAllItem } from '../../actions/AdminAction'
+import PropTypes from "prop-types";
 
-export default class RemoveItem extends Component {
+class RemoveItem extends Component {
     render() {
+      const {items} = this.props.categoryList;
         return (
 
 <div id="wrapper">
@@ -20,7 +24,7 @@ export default class RemoveItem extends Component {
                 to="#"
               >
                 <div className="sidebar-brand-text mx-3">
-                  ♛ Restorent Admin
+                  ♛ Restaurant Admin
                 </div>
               </Link>
 
@@ -243,30 +247,18 @@ export default class RemoveItem extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    {items.map(item=>
                     <tr>
-                        <td>Tamatar</td>
-                        <td>Sabji</td>
-                        <td>4 kg</td>
-                        <td>Good for health</td>
-                        <td>200</td>
-                            <td > 
-                       <button className="text-danger">
-                            <Delete/> 
-                           </button>
-                            </td>
-                    </tr>
-                    <tr>
-                        <td>Tamatar</td>
-                        <td>Sabji</td>
-                        <td>4 kg</td>
-                        <td>Good for health</td>
-                        <td>200</td>
+                        <td>{item.itemName}</td>
+                        <td>{item.categoryName}</td>
+                        <td>{item.quantity}</td>
+                        <td>{item.description}</td>
+                        <td>{item.cost}</td>
                        <button>
                             <td className="text-danger"> <Delete/> </td>
                            </button>
                     </tr>
-                    
+                  )}
                 </tbody>
             </table>
         </div>
@@ -286,3 +278,16 @@ export default class RemoveItem extends Component {
         )
     }
 }
+
+RemoveItem.propTypes = {
+  categoryList: PropTypes.object.isRequired,
+  getAllItem: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps  = state => ({
+  categoryList: state.categoryList,
+  errors: state.errors
+})
+
+export default connect(mapStateToProps, getAllItem)(RemoveItem);

@@ -1,10 +1,40 @@
 import { Fastfood } from "@material-ui/icons";
 import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./addcategory.css";
+import { addItem } from "../../actions/AdminAction";
+import PropTypes from "prop-types";
 
-export default class AddItem extends Component {
+class AddItem extends Component {
+  state = {
+    itemName: "",
+        categoryName: "",
+        quantity: 0,
+        description: "",
+        cost: 0.0
+  }
+
+  handleChange = (event) => {
+    this.setState({[event.target.name]: event.target.value})
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+  
+    const newItem =  {
+          categoryName: this.state.categoryName,
+          cost: this.state.cost,
+          itemName: this.state.itemName,
+         
+          quantity: this.state.quantity,
+          description: this.state.description
+          
+    }
+    console.log(newItem)
+    this.props.addItem(newItem,this.props.history)
+  }
 
   render() {
     return (
@@ -221,31 +251,31 @@ export default class AddItem extends Component {
     
     <p className="h3 text-primary"><Fastfood/> Add Your Item From Category </p>
 <hr />
-<Form id="addItem">
+<Form id="addItem" onSubmit={this.handleSubmit}>
 
   <Form.Group className="">
     <Form.Label>Item Name</Form.Label>
-    <Form.Control type="text" placeholder="Enter Item Name" />
+    <Form.Control type="text" placeholder="Enter Item Name" name="itemName" onChange={this.handleChange} />
   </Form.Group>
   
   <Form.Group className="">
     <Form.Label>Category Name</Form.Label>
-    <Form.Control type="text" placeholder="Enter Category Name" />
+    <Form.Control type="text" placeholder="Enter Category Name" name="categoryName" onChange={this.handleChange}/>
   </Form.Group>  
   
   <Form.Group className="">
     <Form.Label>Quantity</Form.Label>
-    <Form.Control type="number" placeholder="Enter Quantity"/>
+    <Form.Control type="number" placeholder="Enter Quantity" name="quantity" onChange={this.handleChange}/>
   </Form.Group>
 
   <Form.Group className="" >
     <Form.Label>Description</Form.Label>
-    <Form.Control type="textarea" placeholder="Enter Description" />
+    <Form.Control type="textarea" placeholder="Enter Description" name="description" onChange={this.handleChange}/>
   </Form.Group>
 
   <Form.Group className="" >
     <Form.Label>Cost</Form.Label>
-    <Form.Control type="number" placeholder="Enter Price" />
+    <Form.Control type="number" placeholder="Enter Price" name="cost" onChange={this.handleChange}/>
   </Form.Group>
 <br />
 
@@ -269,3 +299,15 @@ export default class AddItem extends Component {
     );
   }
 }
+
+AddItem.propTypes = {
+  
+  addItem: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps  = state => ({
+  errors: state.errors
+})
+
+export default connect(mapStateToProps,{addItem})(AddItem);

@@ -1,8 +1,9 @@
-import { GET_CATEGORY_LIST, REMOVE_CATEGORY } from "../actions/types";
+import { ADD_CATEGORY, ADD_ITEM, GET_ALL_ITEM, GET_CATEGORY_LIST, REMOVE_CATEGORY } from "../actions/types";
 
 
 const initialState = {
-   allcategory:[]
+   allcategory:[],
+    items:[]
 }
 
 export default function(state = initialState, action){
@@ -15,6 +16,20 @@ export default function(state = initialState, action){
         case REMOVE_CATEGORY:
            return({
                 ...state
+        });
+        case ADD_CATEGORY:
+           return({
+                ...state,
+                allcategory: action.payload 
+        });
+        case ADD_ITEM:
+           return({
+                ...state,
+        });
+        case GET_ALL_ITEM:
+           return({
+                ...state,
+                items: action.payload
         });
         default:
             return state;

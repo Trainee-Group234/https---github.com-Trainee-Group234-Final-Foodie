@@ -16,7 +16,7 @@ class RemoveCategory extends Component {
       //window.location.href = "/removecategory"
   }
     render() {
-     // const {allcategory} = this.props.categoryList
+      const {allcategory} = this.props.categoryList
         return (
 
 
@@ -259,7 +259,7 @@ class RemoveCategory extends Component {
                 </thead>
                 
                 <tbody>
-                  {this.state.categories.map(cat=> 
+                  {allcategory.map(cat=> 
                     <tr>
                         <td>{cat.name}</td>
                         <td>{cat.cuisines}</td>
