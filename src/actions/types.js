@@ -1,2 +1,10 @@
 export const REGISTER_CUST = "REGISTER_CUST";
 export const GET_ERRORS = "GET_ERRORS"; 
+export const CURRENT_USER = "CURRENT_USER";
+export const SET_ADMIN_USER = "SET_ADMIN_USER";
+export const GET_CUSTOMERS = "GET_CUSTOMERS";
+export const GET_CATEGORY = "GET_CATEGORY";
+export const GET_ITEM_LIST = "GET_ITEM_LIST";
+export const GET_CATEGORY_LIST  = "GET_CATEGORY_LIST";
+export const GET_ITEMS = "GET_ITEMS";
+export const REMOVE_CATEGORY = "REMOVE_CATEGORY"; 

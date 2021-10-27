@@ -5,18 +5,22 @@
 
 
 .maincart{
-	/* margin-top: 10px;	
-	margin-left: 10px; */
+	margin-top: 10px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	background-color:#ebd7ff;
+	background-image:radial-gradient(orange,white);
 }
-
+#navbar-brand{
+    font-family: 'Akronim', cursive;
+    font-size: 40px;
+	padding-left: 10%;
+	padding-top: 1%;
+}
 #menubar{
 	height: 70px;
 	width: 100%;
-	background: #ffa3a3;
+	background-image:radial-gradient(white,orange);
 	padding-left: 15px;
 	padding-right: 15px;
 }
@@ -44,12 +48,13 @@
 	font-size: 15px;
 	width: 200px;
 	height: 30px;
-	border-radius: 10px;
+	border-radius: 20px;
 }
 
 .cart {
 	margin:20px;	
 	padding:10px;
+	border-radius: 15px;
 	background: #e9e6ec;
 	box-shadow: 0px 0px 15px 6px #283e530c;
 }
@@ -80,7 +85,6 @@
 
 .nav {
 	height: 70px;
-	background-color: #ec4a4a;
 }
 
 
@@ -102,7 +106,7 @@
 
 div.cart  p {
 		white-space: nowrap; 
-  	overflow: hidden;
+  		overflow: hidden;
 		text-overflow: ellipsis;
 		width: 180px;
 }

@@ -1,17 +1,15 @@
-/* eslint-disable import/no-anonymous-default-export */
-
-import { REGISTER_CUST } from "../actions/types";
+import { GET_CATEGORY } from "../actions/types";
 
 const initialState = {
-    customer: {}
+    category:[]
 }
 
 export default function(state = initialState, action){
     switch (action.type) {
-        case REGISTER_CUST:
+        case GET_CATEGORY:
            return({
                 ...state,
-            customer: action.payload
+            category: action.payload
         })
         default:
             return state;

@@ -7,21 +7,22 @@
 @import url('https://fonts.googleapis.com/css?family=Akronim&display=swap');	
 
 body {
+	background-image: radial-gradient(orange,white);
     width: 100%;
     height: 100%;
 	font-family: 'Nunito', sans-serif;
 }
 
 #id1 {
-	float: left
+	float: left;
 }
 
 #input {
-	width: 400px;
+	width:auto ;
 	padding: 10px;
-	border-color: black;
 	margin: 6px 0 6px 0;
 	border-radius: 30px;
+	background-image: radial-gradient(white, #f8ff9a);
 	border-width: 0.1rem;
 	height: 15px;
 }
@@ -29,23 +30,21 @@ body {
 
 
 #btn {
-	width: 400px;
+	width: 85px;
 	height: 30px;
 	font-size: 17px;
-	background-color:teal;
-	border-color:cadetblue;
-	color: white;
+	color: black;
 	border-radius: 25px;
-	
+	background-image: radial-gradient(white, green);
 }
 #login{
-	color:teal;
+	color:rgb(53, 49, 49);
 	font-family: cursive;
 }
 
 #logoApp{
 	font-size: 60px;
-	color:teal;
+	color:rgb(53, 49, 49);
 	font-family:'Akronim', cursive;
 	padding:100px 0px 100px 0px;
 }

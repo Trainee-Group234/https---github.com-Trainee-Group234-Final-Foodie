@@ -1,11 +1,24 @@
 import React from 'react'
 import '../styles/OrderStyle.css'
-import User from '../images/kishan.jpg' 
 import Menu from '../components/Menu'
 import data from '../data/data.json'
 import MyCart from '../components/MyCart'
-
+import Usernavbar from './Usernavbar'
+import { Category } from '@material-ui/icons'
+import { getItems } from '../actions/FoodieAction'
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux'
 class Orders extends React.Component {
+    componentDidMount(){
+        if(!localStorage.jwtToken){
+            window.location.href = "/"
+        }else{
+            const {id} = this.props.match.params
+          
+            this.props.getItems(id)
+
+        }
+    }
     constructor(){
         super();
         this.state = {
@@ -70,50 +83,39 @@ class Orders extends React.Component {
    
 
     render(){
+        const {item} = this.props.items
         return(
         <div>
-            <div className="nav">
-                <div id="logo">
-                    <h2>FOODIE</h2>
-                </div>
-
-                <div id="user">
-                    <div className="name">Hello, Kushagra</div>
-                    <div className="profile">
-                        <img src={User} id="img" height="45" width="45" alt="profile"/>
-                    </div>
-                </div>
-            
-                
-            </div>
-
+           <Usernavbar/>
             <div id="content">
                 <div id="head">
-                    <h1 className='hname'>{this.state.newList.map(x => x.name)}</h1>
-                    <h5 className='aname'><i class="fa fa-map-marker" style={{fontSize:18}}></i> {this.state.newList.map(x => x.address)}</h5>
+                    <h1 className='hname'>Dummy</h1>
+                 
+                    {/* <h5 className='aname'><i class="fa fa-map-marker" style={{fontSize:18}}></i> {this.state.newList.map(x => x.address)}</h5> */}
+                 
                     <div id='items'>
                         <center><h2>Order Now</h2></center>
                         <br/>
 
-                        {this.state.newList.map (
-                            x => x.menu.map(item => <Menu 
-                                                        id = {item.id}
-                                                        desc={item.desc} 
-                                                        price={item.price} 
-                                                        name={item.name}
-                                                        action={this.childHandler} />)
+                        {item.map (
+                            x =>  <Menu 
+                                                        id = {x.itemId}
+                                                        desc={x.description} 
+                                                        price={x.cost} 
+                                                        name={x.itemName}
+                                                        action={this.childHandler} />
                         )		
                                         
                         }
 
                     </div>
                 </div>
-                <div id="panel">
+                <div id="panel ">
                     <div id="logo">               
                     </div> 
                     <div id="right">
                         <div id= "right-in">
-                            <h4>My Cart</h4>
+                            <h4><Category/> My Cart</h4>
                                 
                             { this.state.clickable && 
                                 <div>
@@ -145,5 +147,11 @@ class Orders extends React.Component {
         )
     };
 }
+Orders.propTypes = {
+    getItems:PropTypes.func.isRequired
+}
 
-export default Orders;
+const mapStateToProps  = state => ({
+    items: state.items
+})
+export default connect(mapStateToProps,{getItems})(Orders);

@@ -1,0 +1,12 @@
+#logoapp{
+    /* color:#004947; */
+    font-family: 'Akronim', cursive;
+    font-size: 30px;
+}
+.container1{
+    padding: 10%;
+    background-image: linear-gradient(white, orange);
+}
+*{
+    font-family: cursive;
+}

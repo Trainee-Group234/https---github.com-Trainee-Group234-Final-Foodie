@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+
+.navbar-brand{
+  font-size: 70px;
+  color:rgb(0, 0, 0);
+  font-family: 'Akronim', cursive;
+}
+
+#navigation{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.b-nav{
+  background-color: #0054fc;
+  color: azure;
+  border: solid;
+  border-color: #0055ff;
+  border-radius: 1em;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.bgimg{
+  background-color: #8BC6EC;
+background-image: linear-gradient(135deg, #585f63 0%, #00744dc7 100%);
+
+}

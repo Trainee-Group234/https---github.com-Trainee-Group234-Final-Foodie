@@ -11,7 +11,7 @@ class RestaurantCard extends React.Component{
 
     render(){
         return(
-            <div className="cart">
+            <div className="cart ">
                 <Link to={{
                     pathname:`/order/${this.props.name}`}}>
                     <center><img src={this.props.thumbnail_image} alt={this.props.name}/></center>

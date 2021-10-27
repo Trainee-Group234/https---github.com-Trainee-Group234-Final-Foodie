@@ -1,27 +1,43 @@
 import React from 'react';
 import '../styles/HotelStyle.css'
-import User from '../images/kishan.jpg'
-import data from '../data/data.json'
 import RestaurantCard from '../components/RestaurantCard'
+import Usernavbar from './Usernavbar';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getCategory } from '../actions/FoodieAction';
 
 class Hotels extends React.Component {
     constructor(){
         super();
         this.state={
-            list: data
+            list: []
         };
     }
 
+    componentDidMount(){
+        if(!localStorage.jwtToken){
+            window.location.href="/"
+        }else{
+            this.props.getCategory();
+            //this.setState({list: this.props.category.category})
+            //console.log(this.state.list)
+        }
+    }
+
     sortMenu=(e)=>{
+        // this.setState({list: this.props.category.category})
+        // console.log(this.state.list);
+        const{category} = this.props.category;
+        console.log(category)
         if (e.target.value === 'rating'){
             this.setState({
-                list: data.sort(function(a,b){return b.rating - a.rating})
+                list: category.sort(function(a,b){return b.rating - a.rating})
             })
             
         }
         else if (e.target.value === 'review'){
             this.setState({
-                list: data.sort(function(a,b){return b.reviews - a.reviews})
+                list: category.sort(function(a,b){return b.reviews - a.reviews})
             })
             
         }
@@ -34,34 +50,24 @@ class Hotels extends React.Component {
                 return (a < b) ? -1 : (a > b) ? 1 : 0;
               }
             this.setState({
-                list: data.sort(function(a,b){return compareName(a.name, b.name)})
+                list: category.sort(function(a,b){return compareName(a.name, b.name)})
             })
             
         }
         
     }
 
-    render(){
+    render(){ 
+        const {category} = this.props.category
         return(
             <div>
-            <div className="nav">
-                <div id="logo">
-                    <h2>FOODIE</h2>
-                </div>
-           
-                <div id="user">
-                    <div className="name">Hello, Kushagra</div>
-                    <div className="profile">
-                        <img src={User} alt="profile" id="img" height="45" width="45"/>
-                    </div>
-                </div>
-            </div>
+<Usernavbar/>
             
-            <div className="maincart">
+            <div className="maincart ">
 
             <div id="menubar">
                 
-                <h4 id="menu-title">Choose Your Favourite One</h4>
+                <h4 id="menu-title">Choose Your Category</h4>
             
                 <p id ="sort">  Sort by &nbsp; &nbsp;
                     <select id="sort-metrics" defaultValue={"none"} onChange={(e) => this.sortMenu(e)}>
@@ -72,18 +78,32 @@ class Hotels extends React.Component {
                     </select>
                 </p>
             </div>
-            {this.state.list.map(
+        
+            {/* {this.state.list.map(
                 x => 
                 <RestaurantCard thumbnail_image={x.thumbnail_image} name = {x.name} cuisines = {x.cuisines} rating = {x.rating} reviews = {x.reviews}/>
                 
+                )} */}
+            {category.map(
+                x => 
+                <RestaurantCard thumbnail_image={x.thumbnailimage} name = {x.name} cuisines = {x.cuisines} rating = {x.rating} reviews = {x.reviews}/>
+                
                 )}
 
-        
-            
             </div>
         </div>
         )
     };
 }
+Hotels.propTypes = {
+    getCustomers:PropTypes.func.isRequired,
+    getCategory: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired,
+    category: PropTypes.object.isRequired
+}
 
-export default Hotels;
+const mapStateToProps  = state => ({
+    errors: state.errors,
+    category: state.category
+})
+export default connect(mapStateToProps,{getCategory})(Hotels);

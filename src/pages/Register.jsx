@@ -8,13 +8,13 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
 import "../styles/Register.css"
-import { Select } from '@material-ui/core';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { registerCustomer } from '../actions/FoodieAction';
 import axios from 'axios';
-import { withRouter } from 'react-router';
+import Navigation from "./Navigation"
 
 import { FormLabel } from 'react-bootstrap';
 
@@ -44,6 +44,11 @@ class Register extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.retypePassword = this.retypePassword.bind(this);
         this.registerUser = this.registerUser.bind(this);
+    }
+    componentDidMount(){
+        if(this.props.login.validToken){
+            this.props.history.push("/hotels")
+        }
     }
 
     handleChange(content) {
@@ -111,16 +116,17 @@ class Register extends React.Component {
     }
     render() {
         return (
-            <form className="register" onSubmit={this.handleSubmit}>
+            <form className="register bg-active" onSubmit={this.handleSubmit}>
+                <Navigation/>
                 <Grid container justify="center">
 
                     <Grid item xs={6}>
 
                         <div className="container">
-                            <center><h1 id="logoApp">FOODIE</h1></center>
+                            <center><h4 style={{padding:"50px",color:"black"}}>New User Please Register Here</h4></center>
 
-                            <FastfoodIcon className="icon" />
-
+                            <FastfoodIcon className="icon" /> 
+                            
                             <Typography component="h1" variant="h5" className="signup">
                                 Sign up
                             </Typography>
@@ -131,7 +137,7 @@ class Register extends React.Component {
 
                             <form onSubmit={this.registerUser}>
 
-                                <TextField
+                                <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -143,7 +149,7 @@ class Register extends React.Component {
                                     onChange={event => this.handleChange({ firstName: event.target.value })}
                                 />
 
-                                <TextField
+                                <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -155,7 +161,7 @@ class Register extends React.Component {
                                     onChange={event => this.handleChange({ lastName: event.target.value })}
                                 />
 
-                                <TextField
+                                <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -167,39 +173,8 @@ class Register extends React.Component {
                                     onChange={event => this.handleChange({ age: event.target.value })}
                                 />
 
-                                {/* <Select
-                                    label="Gender"
-                                    value={this.state.gender}
-                                    onChange={event => this.handleChange({ gender: event.target.value })}
-                                >
-                                    <Option>Male</Option>
-                                    <Option>Female</Option>
-                                    <Option>Other</Option>
-                                </Select> */}
-                                <FormControl component="fieldset">
 
-<FormLabel component="legend">Gender</FormLabel>
-<RadioGroup
-    value={this.state.gender}
-    onChange={event => this.handleChange({ gender: event.target.value })}
-    aria-label="gender"
-
-    defaultValue="female"
-
-    name="radio-buttons-group"
-
->
-
-    <FormControlLabel value="female" control={<Radio />} label="Female" />
-
-    <FormControlLabel value="male" control={<Radio />} label="Male" />
-
-    <FormControlLabel value="other" control={<Radio />} label="Other" />
-
-</RadioGroup>
-
-</FormControl>
-                                <TextField
+                                <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -211,7 +186,7 @@ class Register extends React.Component {
                                     onChange={event => this.handleChange({ email: event.target.value })}
                                 />
 
-                                <TextField
+                                <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -226,7 +201,7 @@ class Register extends React.Component {
                                     {this.state.passwordDifferent ? <i>Password doesn't match</i> : null}
                                 </Typography>
 
-                                <TextField
+                                <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -237,7 +212,7 @@ class Register extends React.Component {
                                     onChange={event => this.retypePassword(event)}
                                 />
 
-                                <TextField
+                                <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -247,9 +222,29 @@ class Register extends React.Component {
                                     value={this.state.phoneNumber}
                                     onChange={event => this.handleChange({ phoneNumber: event.target.value })}
                                 />
-<legend className="signup" >Address</legend>
+                                <hr />
+                                <FormControl component="fieldset" className="bg-gradient-warning collapse-inner rounded">
 
-                                <TextField
+                                <FormLabel component="legend">Gender</FormLabel>
+
+                            <RadioGroup
+                                value={this.state.gender}
+                                onChange={event => this.handleChange({ gender: event.target.value })}
+                                aria-label="gender"
+                                defaultValue="female"
+                                name="radio-buttons-group"
+                            >
+                                <FormControlLabel value="male" control={<Radio />} label="Male" />
+                                <FormControlLabel value="female" control={<Radio />} label="Female" />
+
+                            </RadioGroup>
+                            </FormControl>
+
+                            <br /> <hr />
+
+                            <legend className="signup bg-gradient-warning"  >Address</legend>
+
+                                <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -259,7 +254,7 @@ class Register extends React.Component {
                                     value={this.state.buildingname}
                                     onChange={event => this.handleChange({ buildingname: event.target.value })}
                                     />
-                                <TextField
+                                <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -269,7 +264,7 @@ class Register extends React.Component {
                                     value={this.state.street}
                                     onChange={event => this.handleChange({ street: event.target.value })}
                                     />
-                                <TextField
+                                <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -279,7 +274,7 @@ class Register extends React.Component {
                                     value={this.state.area}
                                     onChange={event => this.handleChange({ area: event.target.value })}
                                     />                
-                                                    <TextField
+                                    <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -290,7 +285,7 @@ class Register extends React.Component {
                                     onChange={event => this.handleChange({ city: event.target.value })}
                                     />
 
-                                <TextField
+                                <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -305,7 +300,7 @@ class Register extends React.Component {
                                     type="submit"
                                     fullWidth
                                     variant="contained"
-                                    // color="primary"
+                                    color="primary"
                                     id="sbtn"
                                 >
                                     Sign Up
@@ -336,10 +331,12 @@ class Register extends React.Component {
 }
 Register.propTypes = {
     registerCustomer:PropTypes.func.isRequired,
-    errors: PropTypes.object.isRequired
+    errors: PropTypes.object.isRequired,
+    login: PropTypes.object.isRequired
 }
 
 const mapStateToProps  = state => ({
-    errors: state.errors
+    errors: state.errors,
+    login: state.login
 })
 export default connect(mapStateToProps, {registerCustomer}) (Register);
