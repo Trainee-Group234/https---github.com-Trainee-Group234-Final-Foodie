@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_CATEGORY, GET_CATEGORY_LIST, GET_CUSTOMERS, GET_ITEMS, REMOVE_CATEGORY, SET_ADMIN_USER } from "./types";
+import { ADD_CATEGORY, ADD_ITEM, GET_ALL_ITEM, GET_CATEGORY, GET_CATEGORY_LIST, GET_CUSTOMERS, GET_ITEMS, REMOVE_CATEGORY, REMOVE_ITEM, SET_ADMIN_USER } from "./types";
 
 export const adminLogin = (login, history) => async dispatch => {
     try {
@@ -63,6 +63,66 @@ export const removeCategory = (name,history) => async dispatch => {
         dispatch({
             type: REMOVE_CATEGORY,
             payload: name
+        })
+    } catch (error) {
+        
+    }
+}
+
+export const addCategory = (category,history) => async dispatch => {
+    try {
+        await axios.post(`http://localhost:8081/api/customer/category/add`,category);
+        const res =await axios.get("http://localhost:8081/api/customer/category/all");
+        history.push("/removecategory")
+        
+        dispatch({
+            type: ADD_CATEGORY,
+            payload: res.data
+        })
+    } catch (error) {
+        
+    }
+}
+
+export const addItem = (item,history) => async dispatch => {
+    try {
+        await axios.post(`http://localhost:8081/api/customer/item/add`,item);
+        //const res =await axios.get("http://localhost:8081/api/customer/category/all");
+       // history.push("/removecategory")
+        
+        dispatch({
+            type: ADD_ITEM,
+            payload: {}
+        })
+    } catch (error) {
+        
+    }
+}
+
+export const getAllItem = () => async dispatch => {
+    try {
+        const res = await axios.get(`http://localhost:8081/api/customer/items/all`);
+        //const res =await axios.get("http://localhost:8081/api/customer/category/all");
+       // history.push("/removecategory")
+        
+        dispatch({
+            type: GET_ALL_ITEM,
+            payload: res.data
+        })
+    } catch (error) {
+        
+    }
+}
+
+export const removeItem = (itemName,history) => async dispatch => {
+    try {
+        await axios.delete(`http://localhost:8081/api/customer/items/all`);
+        //const res =await axios.get("http://localhost:8081/api/customer/category/all");
+       // history.push("/removecategory")
+        
+        dispatch({
+            type: REMOVE_ITEM,
+            payload: {}
         })
     } catch (error) {
         
