@@ -8,6 +8,7 @@ import { login, getCategory } from "../actions/FoodieAction";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
+import classNames from 'classnames';
 
 // import Footer from "./Footer"
 
@@ -17,8 +18,14 @@ class LoginPage extends React.Component {
     this.state = {
       username: "",
       password: "",
+      errors: {}
     };
   }
+  componentWillReceiveProps(nextProps){
+    if(nextProps.errors){
+        this.setState({errors: nextProps.errors})
+    }
+}
 
   onChangeUser = (event) => {
     this.setState({ username: event.target.value });
@@ -34,10 +41,10 @@ class LoginPage extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    // this.props.history.push("/hotels")
-    Redirect("/hotels");
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   // this.props.history.push("/hotels")
+  //   Redirect("/hotels");
+  // }
 
   click = (event) => {
     // if(this.state.username === 'kushagra' && this.state.password === 'kushagra123'){
@@ -58,6 +65,8 @@ class LoginPage extends React.Component {
   };
 
   render() {
+    const {errors} = this.state;
+    //console.log(errors)
     return (
       <div>
         <Navigation />
@@ -97,6 +106,8 @@ class LoginPage extends React.Component {
                         this.setState({ username: e.target.value });
                       }}
                     />
+                    <div style={{color: "rebeccapurple"}}>{errors.username}</div>
+                        
                     <TextInput
                       type="password"
                       name="password"
@@ -105,6 +116,9 @@ class LoginPage extends React.Component {
                         this.setState({ password: e.target.value });
                       }}
                     />
+                 
+                 <div style={{color: "rebeccapurple"}}>{errors.password}</div>
+                          
                     <input type="submit" name="login" id="btn" value="Login" />
                   </form>
                 </center>
@@ -122,11 +136,11 @@ LoginPage.propTypes = {
   login: PropTypes.func.isRequired,
   login: PropTypes.object.isRequired,
   getCategory: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
   errors: state.errors,
-  login: state.login,
+  login: state.login
 });
 export default connect(mapStateToProps, { login, getCategory })(LoginPage);

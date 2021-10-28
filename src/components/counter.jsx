@@ -11,16 +11,18 @@ class Counter extends Component {
       <div className="container">
         <div className="row"><h5>{this.props.counter.title}</h5></div>
       <div className="row">
-        <div className="col-1">
-          <span className={this.getBadgeClasses()}>{this.props.counter.qty}</span>
-        </div><br/>
-        <div className="col"><button
+      <div className="col-3"><button
             onClick={() => this.props.onIncrement(this.props.counter)}
             className="btn btn-secondary btn-sm m-1"
+            style={{width:"35px"}}
           >
             +
           </button></div>
-        <div className="col">
+        <div className="col-3" >
+          <span className={this.getBadgeClasses()} style={{width:"35px"}}>{this.props.counter.qty}</span>
+        </div>
+        
+        <div className="col-3" >
           {/* <button
             onClick={() => this.props.onIncrement(this.props.counter)}
             className="btn btn-secondary btn-sm m-1"
@@ -31,6 +33,7 @@ class Counter extends Component {
             onClick={() => this.props.onSubtract(this.props.counter)}
             className="btn btn-secondary btn-sm m-1"
             disabled={this.props.counter.qty === 0 ? "disabled" : ""}
+            style={{width:"35px"}}
           >
             -
           </button>
@@ -41,10 +44,11 @@ class Counter extends Component {
             X
           </button> */}
         </div>
-        <div className="col">
+        <div className="col-3">
         <button
             onClick={() => this.props.onDelete(this.props.counter.id)}
             className="btn btn-danger btn-sm m-1"
+            style={{width:"35px"}}
           >
             X
           </button>

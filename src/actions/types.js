@@ -12,3 +12,5 @@ export const ADD_CATEGORY = "ADD_CATEGORY";
 export const ADD_ITEM = "ADD_ITEM"; 
 export const GET_ALL_ITEM = "GET_ALL_ITEM"; 
 export const REMOVE_ITEM = "REMOVE_ITEM";
+export const BLOCK = "BLOCK";
+export const UNBLOCK = "UNBLOCK";

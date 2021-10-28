@@ -40,7 +40,10 @@ export const login = (customer, history) => async dispatch =>{
             payload: decoded 
         })
     } catch (error) {
-
+        dispatch({
+            type: GET_ERRORS,
+            payload: error.response.data
+        })
         
     }
 }

@@ -2,10 +2,14 @@ import { Delete, Fastfood} from '@material-ui/icons'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getAllItem } from '../../actions/AdminAction'
+import { getAllItem, removeItem } from '../../actions/AdminAction'
 import PropTypes from "prop-types";
 
 class RemoveItem extends Component {
+  handleDelete(name){
+    this.props.removeItem(name,this.props.history)
+    //window.location.href = "/removecategory"
+}
     render() {
       const {items} = this.props.categoryList;
         return (
@@ -255,7 +259,7 @@ class RemoveItem extends Component {
                         <td>{item.description}</td>
                         <td>{item.cost}</td>
                        <button>
-                            <td className="text-danger"> <Delete/> </td>
+                            <td className="text-danger" onClick={this.handleDelete.bind(this,item.itemName)}> <Delete/> </td>
                            </button>
                     </tr>
                   )}
@@ -282,6 +286,7 @@ class RemoveItem extends Component {
 RemoveItem.propTypes = {
   categoryList: PropTypes.object.isRequired,
   getAllItem: PropTypes.func.isRequired,
+  removeItem: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired
 }
 
@@ -290,4 +295,4 @@ const mapStateToProps  = state => ({
   errors: state.errors
 })
 
-export default connect(mapStateToProps, getAllItem)(RemoveItem);
+export default connect(mapStateToProps, {getAllItem,removeItem})(RemoveItem);

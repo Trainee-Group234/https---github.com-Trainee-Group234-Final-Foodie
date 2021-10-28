@@ -7,10 +7,17 @@ import Footer from "./Footer"
 import Navigation from './Navigation'
 import { adminLogin } from '../actions/AdminAction'
 import PropTypes from "prop-types"
+import classNames from "classnames";
 class Admin  extends Component {
 state = {
     username: "",
-    password: ""
+    password: "",
+    errors: {}
+}
+componentWillReceiveProps(nextProps){
+    if(nextProps.errors){
+        this.setState({errors: nextProps.errors})
+    }
 }
 
 handleOnchange = event => {
@@ -28,6 +35,8 @@ handleSubmit = event => {
 }
 
     render() {
+        const {errors} = this.state;
+        
         return (
 
 <div>
@@ -54,14 +63,20 @@ handleSubmit = event => {
                                     <form className="user text-center" onSubmit={this.handleSubmit}>
                                         <div className="form-group">
 
-                                            <input type="email" className="form-control form-control-user"
+                                            <input type="email" className={classNames("form-control form-control-user",{ "is-invalid": errors.username})}
                                                 name="username" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..." value={this.state.username} onChange={this.handleOnchange}/>
+                                            {errors.username && (
+                                                <div className="invalid-feedback">{errors.username}</div>
+                                            )}
                                         </div>
                                         
                                         <div className="form-group">
-                                            <input type="password" className="form-control form-control-user"
+                                            <input type="password" className={classNames("form-control form-control-user",{ "is-invalid": errors.password})}
                                                 name="password" placeholder="Password" value={this.state.password} onChange={this.handleOnchange}/>
+                                            {errors.password && (
+                                                <div className="invalid-feedback">{errors.password}</div>
+                                            )}
                                         </div>
                                         
                                         <div className="form-group">
@@ -102,7 +117,7 @@ Admin.propTypes = {
 }
 
 const mapStateToProps  = state => ({
-    errors: state.errors,
+    errors: state.errors
 })
 
 export default connect(mapStateToProps,{adminLogin})(Admin);

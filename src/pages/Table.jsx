@@ -4,8 +4,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Person, PersonAddDisabled } from '@material-ui/icons';
+import { blockCustomer, unblockCustomer } from '../actions/AdminAction';
 
 class Table extends Component {
+
+  handleBlock(email){
+    this.props.blockCustomer(email)
+  }
+  handleUnBlock(email){
+    this.props.unblockCustomer(email)
+  }
+
     render() {
         const {customers} = this.props.admin;
         return (
@@ -260,13 +269,13 @@ class Table extends Component {
                                         <td>{customer.status}</td>
                             
                             <td > 
-                            <button className="text-danger">
+                            <button className="text-danger" onClick={this.handleBlock.bind(this,customer.email)}>
                             <PersonAddDisabled/> 
                            </button> 
 
                            &nbsp; &nbsp; 
                            
-                            <button className="text-success">
+                            <button className="text-success" onClick={this.handleUnBlock.bind(this,customer.email)}>
                             <Person/> 
                            </button>
                            
@@ -303,6 +312,8 @@ class Table extends Component {
 }
 Table.propTypes = {
     admin: PropTypes.object.isRequired,
+    blockCustomer: PropTypes.func.isRequired,
+    unblockCustomer: PropTypes.func.isRequired,
     errors: PropTypes.object.isRequired
 }
 
@@ -310,4 +321,4 @@ const mapStateToProps  = state => ({
     admin:state.admin,
     errors: state.errors,
 })
-export default connect(mapStateToProps)(Table);
+export default connect(mapStateToProps,{blockCustomer, unblockCustomer})(Table);
