@@ -9,6 +9,7 @@ import { getItems } from '../actions/FoodieAction'
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux'
 import Counters from '../components/counters'
+import { Link } from 'react-router-dom'
 class Orders extends React.Component {
 
       handleAdd = (id,price, name, quantity) => {
@@ -256,7 +257,9 @@ class Orders extends React.Component {
                                 <input id="pay" type="button" value="Calculate"
                                 onClick = {() => this.total()} />
                                 <br/>
+                                <Link to="/bill" counters={this.state.counters}>
                                 <input id="pay" type="button" value="Pay Now"/>
+                                </Link>
                             </div>
                         </div>                
                     </div>

@@ -20,6 +20,7 @@ import RemoveCategory from './pages/CustomPages/RemoveCategory';
 import AddCategory from './pages/CustomPages/AddCategory';
 import AddItem from './pages/CustomPages/AddItem';
 import RemoveItem from './pages/CustomPages/RemoveItem';
+import ComponentToPrint from './components/checkout';
 
 const jwtToken = localStorage.jwtToken;
 if(jwtToken){
@@ -63,6 +64,7 @@ function App() {
             <Route exact path="/removecategory" component={RemoveCategory}></Route>
             <Route exact path="/additem" component={AddItem}></Route>
             <Route exact path="/removeitem" component={RemoveItem}></Route>
+            <Route exact path="/bill" component={ComponentToPrint}></Route>
 
           </Switch>
         </div>
