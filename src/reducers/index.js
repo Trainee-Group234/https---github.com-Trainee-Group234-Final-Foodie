@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import AdminItemReducer from "./AdminItemReducer";
 import AdminReducer from "./AdminReducer";
+import BillReducer from "./BillReducer";
 import CategoryReducers from "./CategoryReducers";
 import errorReducer from "./errorReducer";
 import FoodieReducer from "./FoodieReducer";
@@ -14,5 +15,6 @@ export const rootReducer = combineReducers({
    category: CategoryReducers,
    items: ItemReducer,
    categoryList: AdminItemReducer,
-   errors: errorReducer
+   errors: errorReducer,
+   bills: BillReducer
 })

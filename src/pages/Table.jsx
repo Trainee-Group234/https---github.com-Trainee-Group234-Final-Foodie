@@ -202,7 +202,7 @@ class Table extends Component {
                           aria-expanded="false"
                         >
                           <span className="mr-2 d-none d-lg-inline text-gray-700 small ">
-                            ❉ Kushagra Sharma
+                          <Person/> Admin
                           </span>
                         </Link>
 

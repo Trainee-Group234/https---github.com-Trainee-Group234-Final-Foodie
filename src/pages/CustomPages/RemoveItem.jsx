@@ -1,4 +1,4 @@
-import { Delete, Fastfood} from '@material-ui/icons'
+import { Delete, Fastfood, Person} from '@material-ui/icons'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -196,7 +196,7 @@ class RemoveItem extends Component {
                           aria-expanded="false"
                         >
                           <span className="mr-2 d-none d-lg-inline text-gray-700 small ">
-                            ❉ Kushagra Sharma
+                            <Person/> Admin
                           </span>
                         </Link>
 

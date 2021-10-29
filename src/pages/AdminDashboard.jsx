@@ -6,13 +6,14 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { adminLogout } from "../actions/AdminAction";
 import { getCustomers, getCategory, getAllItem } from "../actions/AdminAction";
+import { Person } from "@material-ui/icons";
 
 class AdminDashboard extends Component {
-  componentDidMount() {
-    if (!localStorage.getItem("admin")) {
-      window.location.href = "/";
-    }
-  }
+  // componentDidMount() {
+  //   if (!localStorage.getItem("admin")) {
+  //     window.location.href = "/";
+  //   }
+  // }
 
   handleOnClick = () => {
     this.props.getCustomers();
@@ -37,7 +38,7 @@ class AdminDashboard extends Component {
   };
 
   render() {
-    const { totalDishes, totalCustomers } = this.props.admin;
+    const { totalDishes, totalCustomers, totalSales } = this.props.admin;
     return (
       <>
         <body id="page-top">
@@ -57,7 +58,7 @@ class AdminDashboard extends Component {
                 to="#"
               >
                 <div className="sidebar-brand-text mx-3">
-                  ♛ Restorent Admin{" "}
+                  ♛ Restaurant Admin{" "}
                 </div>
               </Link>
 
@@ -225,7 +226,7 @@ class AdminDashboard extends Component {
                           aria-expanded="false"
                         >
                           <span className="mr-2 d-none d-lg-inline text-gray-700 small ">
-                            ❉ Kushagra Sharma
+                          <Person/> Admin
                           </span>
                         </Link>
 
@@ -283,7 +284,7 @@ class AdminDashboard extends Component {
                                 Total Sales (Today)
                               </div>
                               <div className="h5 mb-0 font-weight-bold text-gray-800">
-                                6000
+                                {totalSales}
                               </div>
                             </div>
                             <div className="col-auto">

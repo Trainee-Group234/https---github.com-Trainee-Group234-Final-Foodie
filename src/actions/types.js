@@ -14,3 +14,5 @@ export const GET_ALL_ITEM = "GET_ALL_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const BLOCK = "BLOCK";
 export const UNBLOCK = "UNBLOCK";
+export const SAVE_BILL = "SAVE_BILL";
+export const GET_BILL = "GET_BILL";

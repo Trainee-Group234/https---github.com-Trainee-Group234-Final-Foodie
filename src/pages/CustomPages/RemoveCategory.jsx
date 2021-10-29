@@ -1,4 +1,4 @@
-import { Delete, Fastfood, Star} from '@material-ui/icons'
+import { Delete, Fastfood, Person, Star} from '@material-ui/icons'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
@@ -202,7 +202,7 @@ class RemoveCategory extends Component {
                           aria-expanded="false"
                         >
                           <span className="mr-2 d-none d-lg-inline text-gray-700 small ">
-                            ❉ Kushagra Sharma
+                          <Person/> Admin
                           </span>
                         </Link>
 

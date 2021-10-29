@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CURRENT_USER, GET_CATEGORY, GET_ERRORS, GET_ITEM_LIST } from "./types";
+import { CURRENT_USER, GET_CATEGORY, GET_ERRORS, GET_ITEM_LIST, SAVE_BILL } from "./types";
 import jwtDecode from "jwt-decode";
 import setJwtToken from "../security/setJwtToken";
 
@@ -75,3 +75,25 @@ export const getItems = (itemName) => async dispatch => {
         payload: res.data
     })
 }
+
+export const saveBill = (bill,history) => async dispatch => {
+    const res = await axios.post(`http://localhost:8081/api/foodie/bill/save`,bill);
+    console.log(res.data)
+    // uname = res.data.username
+    // const res = await axios.post(`http://localhost:8081/api/foodie/bill/`,bill);
+   // history.push("/bill")
+    dispatch({
+        type: SAVE_BILL,
+        payload: res.data
+    })
+}
+
+// export const saveBill = (bill,history) => async dispatch => {
+//     // uname = res.data.username
+//     const res = await axios.get(`http://localhost:8081/api/foodie/bill/getbill/`,bill);
+//    //history.push("/bill")
+//     dispatch({
+//         type: SAVE_BILL,
+//         payload: res.data
+//     })
+// }

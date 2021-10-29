@@ -10,7 +10,7 @@ export const adminLogin = (login, history) => async dispatch => {
         //     value: res.data.login.username,
         //     exp: now.getTime() + 30000
         // }
-        localStorage.setItem("admin", res.data);
+        //localStorage.setItem("admin", res.data);
         dispatch({
             type: SET_ADMIN_USER,
             payload: res.data

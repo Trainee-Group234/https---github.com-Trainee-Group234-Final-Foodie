@@ -2,7 +2,9 @@
 import React, { useRef } from 'react'
 import {render} from "react-dom"
 import {useReactToPrint} from 'react-to-print'
-
+import PropTypes from "prop-types";
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
  class ComponentToPrint extends React.Component {
@@ -13,9 +15,14 @@ import {useReactToPrint} from 'react-to-print'
     //     }
     // }
 
+    handleClick(){
+        window.location.href = "/"
+    }
+
    
     render() {
-        const {counters} = this.props;
+        const {bill} = this.props.bills
+        const {customer} = this.props.login;
         const message = () =>{
         console.log("order placed succesfully")
         
@@ -25,8 +32,8 @@ import {useReactToPrint} from 'react-to-print'
             <div className="container">
             <div className="card">
             <div className="card-header">
-            Invoice
-            <strong>01/01/01/2018</strong> 
+            Invoice Date: &nbsp;&nbsp;
+            <strong>{new Date().toISOString().slice(0, 10)}</strong> 
             <span className="float-right"> <strong>Status:</strong> Ordered</span>
 
             </div>
@@ -35,12 +42,12 @@ import {useReactToPrint} from 'react-to-print'
             <div className="col-sm-6">
             <h6 className="mb-3">Delivery Address:</h6>
             <div>
-            <strong>Abdeaali</strong>
+            <strong>{customer.fullname}</strong>
             </div>
             <div>Mahatma gandhi road</div>
             <div>Indore</div>
-            <div>Email: abdeali@t.com.pl</div>
-            <div>Phone: +91 444 666 3333</div>
+            <div>Email: {bill.username}</div>
+            <div>Phone: {bill.mobile}</div>
             </div>
 
             {/* <div className="col-sm-6">
@@ -68,23 +75,22 @@ import {useReactToPrint} from 'react-to-print'
 
             <th className="right">Unit Cost</th>
             <th className="center">Qty</th>
-            <th className="right">Total</th>
+            {/* <th className="right">Total</th> */}
             </tr>
             </thead>
             <tbody>
+            {bill.items.map(item=>
             <tr>
-            <td className="center">1</td>
-            <td className="left strong">Chicken Biryani</td>
-            {/* <td className="left">Authentic local biryani </td> */}
-
-            <td className="right">290.00</td>
-            <td className="center">1</td>
-            <td className="right">290.00</td>
+            <td className="center">{item.id}</td>
+            <td className="left strong">{item.title}</td>
+            <td className="right">{item.cost}</td>
+            <td className="center">{item.qty}</td>
             </tr>
-            <tr>
+            )}
+            {/* <tr>
             <td className="center">2</td>
             <td className="left">mutton biryani jumbo</td>
-            {/* <td className="left">tender mutton biryani</td> */}
+           
 
             <td className="right">650.00</td>
             <td className="center">1</td>
@@ -93,7 +99,7 @@ import {useReactToPrint} from 'react-to-print'
             <tr>
             <td className="center">3</td>
             <td className="left">paneer dopyaza</td>
-            {/* <td className="left">paneer gravy curry </td> */}
+           
 
             <td className="right">190.00</td>
             <td className="center">1</td>
@@ -102,12 +108,12 @@ import {useReactToPrint} from 'react-to-print'
             <tr>
             <td className="center">4</td>
             <td className="left">paneer tikka</td>
-            {/* <td className="left">soft and smokey</td> */}
+            
 
             <td className="right">290.00</td>
             <td className="center">1</td>
             <td className="right">290.00</td>
-            </tr>
+            </tr> */}
             </tbody>
             </table>
             </div>
@@ -132,7 +138,7 @@ import {useReactToPrint} from 'react-to-print'
             <strong>Total</strong>
             </td>
             <td className="right">
-            <strong>1286.00</strong>
+            <strong>{bill.total}</strong>
             </td>
             </tr>
             </tbody>
@@ -159,7 +165,7 @@ import {useReactToPrint} from 'react-to-print'
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Hello User</h5>
+                    <h5 className="modal-title" id="exampleModalLabel">Hurray!</h5>
                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -168,8 +174,10 @@ import {useReactToPrint} from 'react-to-print'
                     Your Order Placed Successfully
                 </div>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-primary">ok</button>
+                   
+                    <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={this.handleClick}>Close</button>
+               
+                    {/* <button type="button" className="btn btn-primary">ok</button> */}
                 </div>
                 </div>
             </div>
@@ -200,4 +208,15 @@ const Example =()=>{
     );
 };
 //render(<Example />, document.querySelector("#root") );
-export default ComponentToPrint;
+
+ComponentToPrint.propTypes = {
+    bills: PropTypes.object.isRequired,
+    login: PropTypes.object.isRequired
+
+}
+
+const mapStateToProps = state => ({
+    bills: state.bills,
+    login: state.login
+})
+export default connect(mapStateToProps)(ComponentToPrint);

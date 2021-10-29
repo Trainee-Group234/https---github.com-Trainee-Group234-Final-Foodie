@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "./addcategory.css";
 import { addCategory } from "../../actions/AdminAction";
 import PropTypes from "prop-types";
+import { Person } from "@material-ui/icons";
 
 class AddCategory extends Component {
 
@@ -220,7 +221,7 @@ handleChange = (event) => {
                           aria-expanded="false"
                         >
                           <span className="mr-2 d-none d-lg-inline text-gray-700 small ">
-                            ❉ Kushagra Sharma
+                          <Person/> Admin
                           </span>
                         </Link>
 

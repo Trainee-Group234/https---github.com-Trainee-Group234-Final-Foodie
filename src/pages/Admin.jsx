@@ -87,7 +87,7 @@ handleSubmit = event => {
                                             </div>
                                         </div>
                                         {/* <Link to ="/dashboard" style={{marginLeft:"50px" }} className="btn btn-primary btn-user btn-block"> Login</Link>  */}
-                                        <input type="submit" style={{marginLeft:"50px" }} className="btn btn-primary btn-user btn-block"></input>
+                                        <input type="submit"  className=" btn-primary btn-user btn-block"></input>
                                         <hr/>
                                     </form>
                                     

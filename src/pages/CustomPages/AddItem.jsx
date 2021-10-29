@@ -1,4 +1,4 @@
-import { Fastfood } from "@material-ui/icons";
+import { Fastfood, Person } from "@material-ui/icons";
 import React, { Component } from "react";
 import { Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
@@ -222,7 +222,7 @@ class AddItem extends Component {
                           aria-expanded="false"
                         >
                           <span className="mr-2 d-none d-lg-inline text-gray-700 small ">
-                            ❉ Kushagra Sharma
+                          <Person/> Admin
                           </span>
                         </Link>
 

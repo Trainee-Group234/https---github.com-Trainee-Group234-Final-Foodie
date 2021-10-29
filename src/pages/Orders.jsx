@@ -10,6 +10,8 @@ import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux'
 import Counters from '../components/counters'
 import { Link } from 'react-router-dom'
+import ComponentToPrint from '../components/checkout'
+import { saveBill } from '../actions/FoodieAction'
 class Orders extends React.Component {
 
       handleAdd = (id,price, name, quantity) => {
@@ -101,7 +103,7 @@ class Orders extends React.Component {
             window.location.href = "/"
         }else{
             const {id} = this.props.match.params
-          
+            this.setState({cname: id})
             this.props.getItems(id)
 
         }
@@ -118,6 +120,7 @@ class Orders extends React.Component {
             total:0,
             quantity:0,
             clickable: false,
+            cname: "",
             counters: [
                 //{ id: 1, qty: 1, cost: 210, title: "Rice" }
             ]
@@ -182,6 +185,19 @@ class Orders extends React.Component {
         )
     }
    
+    handlePay = () =>{
+        const {customer} = this.props.login;
+        // window.location.href = "/bill"
+        let items = []
+        const newBill = {
+            username: customer.username,
+            mobile: customer.mobile,
+            total: this.state.total,
+            items: this.state.counters
+        }
+
+        this.props.saveBill(newBill,this.props.history)
+    }
 
     render(){
         const {item} = this.props.items
@@ -190,7 +206,7 @@ class Orders extends React.Component {
            <Usernavbar/>
             <div id="content">
                 <div id="head">
-                    <h1 className='hname'>Dummy</h1>
+                    <h1 className='hname'>{this.state.cname}</h1>
                     {/* <h5 className='aname'><i class="fa fa-map-marker" style={{fontSize:18}}></i> {this.state.newList.map(x => x.address)}</h5> */}
                     <div id='items'>
                         <center><h2>Order Now</h2></center>
@@ -257,8 +273,8 @@ class Orders extends React.Component {
                                 <input id="pay" type="button" value="Calculate"
                                 onClick = {() => this.total()} />
                                 <br/>
-                                <Link to="/bill" counters={this.state.counters}>
-                                <input id="pay" type="button" value="Pay Now"/>
+                                <Link to="/bill">
+                                <input id="pay" type="button" value="Pay Now" onClick={this.handlePay}/>
                                 </Link>
                             </div>
                         </div>                
@@ -271,10 +287,13 @@ class Orders extends React.Component {
     };
 }
 Orders.propTypes = {
-    getItems:PropTypes.func.isRequired
+    getItems:PropTypes.func.isRequired,
+    saveBill:PropTypes.func.isRequired,
+    login: PropTypes.object.isRequired
 }
 
 const mapStateToProps  = state => ({
-    items: state.items
+    items: state.items,
+    login: state.login
 })
-export default connect(mapStateToProps,{getItems})(Orders);
+export default connect(mapStateToProps,{getItems,saveBill})(Orders);

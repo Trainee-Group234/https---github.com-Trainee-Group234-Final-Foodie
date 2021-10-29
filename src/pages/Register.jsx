@@ -18,7 +18,10 @@ import Navigation from "./Navigation"
 
 import { FormLabel } from 'react-bootstrap';
 
-
+  const emailState={
+      email:'',
+      error:''
+  }
 class Register extends React.Component {
     constructor(props) {
         super(props);
@@ -40,15 +43,34 @@ class Register extends React.Component {
             area:"",
             city:"",
             zipcode:"",
+            error: ""
         }
         this.handleChange = this.handleChange.bind(this);
         this.retypePassword = this.retypePassword.bind(this);
         this.registerUser = this.registerUser.bind(this);
+        this.onChange = this.onChange.bind(this);
     }
     componentDidMount(){
         if(this.props.login.validToken){
             this.props.history.push("/hotels")
         }
+    }
+
+    onChange(e){
+        this.setState({
+            email: e.target.value
+        })
+    }
+
+    emailValidation(){
+        const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if(!this.state.email || regex.test(this.state.email) === false){
+            this.setState({
+                error: "Email is not valid"
+            });
+            return false;
+        }
+        return true;
     }
 
     handleChange(content) {
@@ -69,7 +91,11 @@ class Register extends React.Component {
             this.setState({ registerFailed: "Please correct the error" });
 
             return
-        } else {
+        } 
+        if(this.emailValidation()){
+            this.setState(emailState);
+        }
+        else {
             this.setState({ registerFailed: "" });
             event.preventDefault();
             axios.post("/api/" + this.state.userType + "/register",
@@ -184,8 +210,9 @@ class Register extends React.Component {
                                     value={this.state.email}
                                     autoFocus
                                     onChange={event => this.handleChange({ email: event.target.value })}
+                                    onChange={this.onChange}
                                 />
-
+                                <p style={{color: "rebeccapurple"}}>{this.state.error}</p>
                                 <TextField className="bg-gradient-warning"
                                     variant="outlined"
                                     margin="normal"

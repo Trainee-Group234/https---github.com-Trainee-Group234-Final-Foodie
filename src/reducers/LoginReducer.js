@@ -12,6 +12,7 @@ export default function(state = initialState, action){
                 customer: action.payload,
                 validToken: true
             }
+            
     
         default:
             return state;
