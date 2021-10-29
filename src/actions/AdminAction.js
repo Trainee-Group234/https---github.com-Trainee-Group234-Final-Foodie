@@ -5,12 +5,12 @@ export const adminLogin = (login, history) => async dispatch => {
     try {
         const res = await axios.post("http://localhost:8081/api/customer/admin/login",login);
         history.push("/dashboard")
-        const now = new Date()
-        const item = {
-            value: res.data.login.username,
-            exp: now.getTime() + 30000
-        }
-        localStorage.setItem("admin", item);
+        //const now = new Date()
+        // const item = {
+        //     value: res.data.login.username,
+        //     exp: now.getTime() + 30000
+        // }
+        localStorage.setItem("admin", res.data);
         dispatch({
             type: SET_ADMIN_USER,
             payload: res.data
@@ -160,3 +160,4 @@ export const unblockCustomer = (email) => async dispatch => {
         
     }
 }
+
