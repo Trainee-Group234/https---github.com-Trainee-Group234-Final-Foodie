@@ -9,7 +9,7 @@ class Counter extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row"><h5>{this.props.counter.title}</h5></div>
+        <div className="row"><h5>{this.props.counter.itemName}</h5></div>
       <div className="row">
       <div className="col-3"><button
             onClick={() => this.props.onIncrement(this.props.counter)}
@@ -19,7 +19,7 @@ class Counter extends Component {
             +
           </button></div>
         <div className="col-3" >
-          <span className={this.getBadgeClasses()} style={{width:"35px"}}>{this.props.counter.qty}</span>
+          <span className={this.getBadgeClasses()} style={{width:"35px"}}>{this.props.counter.quantity}</span>
         </div>
         
         <div className="col-3" >
@@ -32,7 +32,7 @@ class Counter extends Component {
           <button
             onClick={() => this.props.onSubtract(this.props.counter)}
             className="btn btn-secondary btn-sm m-1"
-            disabled={this.props.counter.qty === 0 ? "disabled" : ""}
+            disabled={this.props.counter.quantity === 0 ? "disabled" : ""}
             style={{width:"35px"}}
           >
             -
@@ -46,7 +46,7 @@ class Counter extends Component {
         </div>
         <div className="col-3">
         <button
-            onClick={() => this.props.onDelete(this.props.counter.id)}
+            onClick={() => this.props.onDelete(this.props.counter.itemId)}
             className="btn btn-danger btn-sm m-1"
             style={{width:"35px"}}
           >

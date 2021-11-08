@@ -92,12 +92,13 @@ export const addCategory = (category,history) => async dispatch => {
 export const addItem = (item,history) => async dispatch => {
     try {
         await axios.post(`http://localhost:8081/api/customer/item/add`,item);
+        const res = await axios.get(`http://localhost:8081/api/customer/items/all`);
         //const res =await axios.get("http://localhost:8081/api/customer/category/all");
-       // history.push("/removecategory")
+    history.push("/removeitem")
         
         dispatch({
             type: ADD_ITEM,
-            payload: {}
+            payload: res.data
         })
     } catch (error) {
         

@@ -77,8 +77,10 @@ export const getItems = (itemName) => async dispatch => {
 }
 
 export const saveBill = (bill,history) => async dispatch => {
+    console.log(bill)
     const res = await axios.post(`http://localhost:8081/api/foodie/bill/save`,bill);
     console.log(res.data)
+    console.log(res.data.items)
     // uname = res.data.username
     // const res = await axios.post(`http://localhost:8081/api/foodie/bill/`,bill);
    // history.push("/bill")

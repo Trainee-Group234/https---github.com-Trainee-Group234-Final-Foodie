@@ -20,32 +20,32 @@ class Orders extends React.Component {
         
         if (counters.length < 1) {
             let quantity = 0;
-          counters.push({ id: id, qty: quantity+1, cost: price, title: name });
+          counters.push({ itemId: id, quantity: quantity+1, cost: price, itemName: name });
           this.setState({counters: counters})
     
           console.log(counters)
         } else {
-        let result = counters.map(a=>a.id) 
+        let result = counters.map(a=>a.itemId) 
         if (result.includes(id)) {
             counters.map(c => {
-                if (c.id === id) {
-                  c.qty = c.qty + 1;
+                if (c.itemId === id) {
+                  c.quantity = c.quantity + 1;
                   return c;
                 }
             })
             this.setState({counters: counters})
         }else {
             let quantity=0
-            counters.push({ id: id, qty: quantity+1, cost: price, title: name });
+            counters.push({ itemId: id, quantity: quantity+1, cost: price, itemName: name });
             this.setState({counters: counters})
             console.log(counters)
           }
         //   counters.map(c => {
         //     if (c.id === id) {
-        //       c.qty = c.qty + 1;
+        //       c.quantity = c.quantity + 1;
         //       return c;
         //     } else {
-        //       counters.push({ id: id, qty: quantity+1, cost: price, title: name });
+        //       counters.push({ id: id, quantity: quantity+1, cost: price, title: name });
         //       this.setState({counters: counters})
         //       console.log(counters)
         //     }
@@ -71,7 +71,7 @@ class Orders extends React.Component {
         //spread operator clones indexed object
         counters[index] = { ...counter };
         //increases value of cloned object
-        counters[index].qty++;
+        counters[index].quantity++;
         //sets state of new counters array
         this.setState({ counters });
       };
@@ -84,7 +84,7 @@ class Orders extends React.Component {
         //spread operator clones indexed object
         counters[index] = { ...counter };
         //increases value of cloned object
-        counters[index].qty--;
+        counters[index].quantity--;
         //sets state of new counters array
         this.setState({ counters });
       };
@@ -94,7 +94,7 @@ class Orders extends React.Component {
       //creates a new arrary, does not directly update state
       handleDelete = counterID => {
         //filters for all counters without passed ID
-        const counters = this.state.counters.filter(c => c.id !== counterID);
+        const counters = this.state.counters.filter(c => c.itemId !== counterID);
         this.setState({ counters });
       };
     
@@ -122,7 +122,7 @@ class Orders extends React.Component {
             clickable: false,
             cname: "",
             counters: [
-                //{ id: 1, qty: 1, cost: 210, title: "Rice" }
+                //{ id: 1, quantity: 1, cost: 210, title: "Rice" }
             ]
         };
     }
@@ -175,7 +175,7 @@ class Orders extends React.Component {
      
         let totalCost = 0;
         this.state.counters.map(c=>{
-            totalCost = totalCost+(c.qty*c.cost)
+            totalCost = totalCost+(c.quantity*c.cost)
         })
         console.log(totalCost)
         this.setState(
@@ -224,7 +224,7 @@ class Orders extends React.Component {
                         }
                         {/* <div>
                             {this.state.counters.map(c =>
-                                <h5>{c.title}({c.qty})</h5>)}
+                                <h5>{c.title}({c.quantity})</h5>)}
                         <Counters
                                         counters={this.state.counters}
                                         onReset={this.handleReset}

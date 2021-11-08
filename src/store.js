@@ -10,7 +10,7 @@ export let store
 
 if (window.navigator.userAgent.includes("Chrome")) {
     store = createStore(rootReducer, compose(applyMiddleware(...middleware),
-     ReactReduxDevTools
+    ReactReduxDevTools
     ));
 } else {
     store = createStore(

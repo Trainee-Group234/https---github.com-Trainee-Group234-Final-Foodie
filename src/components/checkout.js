@@ -9,11 +9,11 @@ import { Link } from 'react-router-dom';
 
  class ComponentToPrint extends React.Component {
 
-    //  componentDidMount(){
-    //     if(!localStorage.jwtToken){
-    //         window.location.href = "/"
-    //     }
-    // }
+     componentDidMount(){
+        if(!localStorage.jwtToken){
+            window.location.href = "/"
+        }
+    }
 
     handleClick(){
         window.location.href = "/"
@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
    
     render() {
         const {bill} = this.props.bills
+        const {items} = this.props.bills
         const {customer} = this.props.login;
         const message = () =>{
         console.log("order placed succesfully")
@@ -44,8 +45,8 @@ import { Link } from 'react-router-dom';
             <div>
             <strong>{customer.fullname}</strong>
             </div>
-            <div>Mahatma gandhi road</div>
-            <div>Indore</div>
+            <div>{customer.street}</div>
+            <div>{customer.city}</div>
             <div>Email: {bill.username}</div>
             <div>Phone: {bill.mobile}</div>
             </div>
@@ -79,12 +80,12 @@ import { Link } from 'react-router-dom';
             </tr>
             </thead>
             <tbody>
-            {bill.items.map(item=>
+            {items.map(item=>
             <tr>
-            <td className="center">{item.id}</td>
-            <td className="left strong">{item.title}</td>
+            <td className="center">{item.itemId}</td>
+            <td className="left strong">{item.itemName}</td>
             <td className="right">{item.cost}</td>
-            <td className="center">{item.qty}</td>
+            <td className="center">{item.quantity}</td>
             </tr>
             )}
             {/* <tr>
